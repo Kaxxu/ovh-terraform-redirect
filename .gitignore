@@ -1,0 +1,3 @@
+*.swp
+../home/ovh-terraform-redirect/.terraform/
+terraform.tfstate.d/
