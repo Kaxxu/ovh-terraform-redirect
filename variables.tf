@@ -1,18 +1,42 @@
-variable "ovh_zone" {
-  description = "Set your domain e.g. 'example.com'"
-  default     = ""
+########
+# MAIN #
+########
+
+variable "name" {
+  description = "Project Name"
 }
+
+variable "environment" {
+  description = "Environment name"
+}
+
+variable "domain" {
+  description = "Domain name"
+}
+
+variable "TFC_WORKSPACE_SLUG" {
+  description = "Terraform Cloud Workspace"
+  default     = "Terraform Cloud"
+}
+
+#######
+# OVH #
+#######
 
 variable "ovh_type" {
-  description = "Leaving empty will result in 'visiblePermanent'"
-  default     = ""
+  description = "Redirect type"
+  default     = "visiblePermanent"
 }
 
-variable "ovh_target" {
-  description = "Set Target key as Workspace name - Value is the redirection target - replace or delete the below examples"
-  type        = "map"
-  default = {
-    git      = "https://github.com/"
-    linkedin = "https://www.linkedin.com/"
-  }
+variable "ovh_redirect" {
+  description = "Redirections - KEY: subdomain; VALUE: redirect_target "
+  type        = map(string)
+}
+
+#######
+# AWS #
+#######
+
+variable "aws_region" {
+  description = "Region Used"
 }
