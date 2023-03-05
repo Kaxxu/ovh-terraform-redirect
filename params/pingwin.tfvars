@@ -1,4 +1,4 @@
-name        = "ovh-redirect"
+name        = "ovh-pingwin-redirects"
 aws_region  = "eu-central-1"
 environment = "priv"
 domain      = "pingw.in"

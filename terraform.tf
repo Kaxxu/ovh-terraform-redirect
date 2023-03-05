@@ -17,7 +17,7 @@ terraform {
     organization = "Yutani"
 
     workspaces {
-      tags = ["ovh-pingwin"]
+      tags = ["ovh-redirects"]
     }
   }
 }
@@ -35,5 +35,4 @@ provider "aws" {
   }
 }
 
-provider "ovh" {
-}
+provider "ovh" {}
