@@ -1,24 +1,23 @@
 terraform {
-  required_version = "1.3.9"
+  required_version = "1.5.5"
 
   required_providers {
     aws = {
       source  = "hashicorp/aws"
-      version = "= 4.27.0"
+      version = "= 5.11.0"
     }
 
     ovh = {
       source  = "ovh/ovh"
-      version = "= 0.28.1"
+      version = "0.32.0"
     }
   }
 
-  cloud {
-    organization = "Yutani"
-
-    workspaces {
-      tags = ["ovh-redirects"]
-    }
+  backend "s3" {
+    bucket               = "terraform-state-kaxxu"
+    key                  = "ovh/ovh-redirect.tfstate"
+    workspace_key_prefix = "ovh"
+    region               = "eu-west-1"
   }
 }
 

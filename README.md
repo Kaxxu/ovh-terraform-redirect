@@ -71,15 +71,15 @@ Terraform resources documentation
 
 | Name | Version |
 |------|---------|
-| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | 1.3.9 |
-| <a name="requirement_aws"></a> [aws](#requirement\_aws) | = 4.27.0 |
-| <a name="requirement_ovh"></a> [ovh](#requirement\_ovh) | = 0.28.1 |
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | 1.5.5 |
+| <a name="requirement_aws"></a> [aws](#requirement\_aws) | = 5.11.0 |
+| <a name="requirement_ovh"></a> [ovh](#requirement\_ovh) | 0.32.0 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_ovh"></a> [ovh](#provider\_ovh) | 0.28.1 |
+| <a name="provider_ovh"></a> [ovh](#provider\_ovh) | 0.32.0 |
 
 ## Modules
 
@@ -89,7 +89,7 @@ No modules.
 
 | Name | Type |
 |------|------|
-| [ovh_domain_zone_redirection.main](https://registry.terraform.io/providers/ovh/ovh/0.28.1/docs/resources/domain_zone_redirection) | resource |
+| [ovh_domain_zone_redirection.main](https://registry.terraform.io/providers/ovh/ovh/0.32.0/docs/resources/domain_zone_redirection) | resource |
 
 ## Inputs
 
