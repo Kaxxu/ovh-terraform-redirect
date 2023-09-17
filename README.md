@@ -1,66 +1,59 @@
 # OVH Terraform Redirect
-Terraform module to create inside the OVH service a redirection using own domain to target URL using the `terraform workspace` command.
+Terraform stack to create inside the OVH, a redirection for domain to target URL.
 
 # OVH API
 Create OVH api key's at:
 
-https://eu.api.ovh.com/createApp/
+[OVH Token Creation Page](https://api.ovh.com/createToken/?GET=/*&POST=/*&PUT=/*&DELETE=/*) - Require to login
 
-Set the below variables in `ovh.tf`
-- endpoint
-- application_key
-- application_secret
-- consumer_key
-
-# Variables.tf
-Set your domain name in:
-`ovh_zone` (e.g. `example.com`)
-
-Set Redirection way in: `ovh_type` - Leaving empty will be used `visiblePermanent` 
-- `visible`
-  - Redirection by http code 302
-- `visiblePermanent`
-  - Redirection by http code 301
-- `invisible`
-  - Redirection by html frame
-
-Setting the redirection target by `ovh_target`. Set Target key as Workspace name - Value is the redirection target
+Set the global variables in OS:
+```bash
+export OVH_ENDPOINT="ovh-eu"
+export OVH_APPLICATION_KEY=""
+export OVH_APPLICATION_SECRET=""
+export OVH_CONSUMER_KEY=""
+```
+# New Environment
+Set new environment creating new file inside `params` directory:
+```bash
+touch params/new_environment.tfvars
+```
 
 # Terraform workspace
 Setting new `workspace`:
-```
+```bash
 terraform workspace new <TARGET_NAME>
 ```
 
 Listing all `workspace`:
-```
+```bash
 terraform workspace list
 ```
 
 Show currently used `workspace`:
-```
+```bash
 terraform workspace show
 ```
 
 Change `workspace` to `<NAME>`: 
-```
+```bash
 terraform workspace select <NAME>
 ```
 
 # Terraform
 Check and plan if everything is done:
-```
-terraform plan
+```bash
+terraform plan --var-file=params/TARGET_NAME.tfvars
 ```
 
 Apply the changes in code to work:
-```
-terraform apply
+```bash
+terraform apply --var-file=params/TARGET_NAME.tfvars
 ```
 
 Destroy the created redirection - access to the terraform state file is required:
-```
-terraform destroy
+```bash
+terraform destroy --var-file=params/TARGET_NAME.tfvars
 ```
 
 # Terraform Documentation
@@ -95,13 +88,12 @@ No modules.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_TFC_WORKSPACE_SLUG"></a> [TFC\_WORKSPACE\_SLUG](#input\_TFC\_WORKSPACE\_SLUG) | Terraform Cloud Workspace | `string` | `"Terraform Cloud"` | no |
-| <a name="input_aws_region"></a> [aws\_region](#input\_aws\_region) | Region Used | `any` | n/a | yes |
 | <a name="input_domain"></a> [domain](#input\_domain) | Domain name | `any` | n/a | yes |
 | <a name="input_environment"></a> [environment](#input\_environment) | Environment name | `any` | n/a | yes |
 | <a name="input_name"></a> [name](#input\_name) | Project Name | `any` | n/a | yes |
 | <a name="input_ovh_redirect"></a> [ovh\_redirect](#input\_ovh\_redirect) | Redirections - KEY: subdomain; VALUE: redirect\_target | `map(string)` | n/a | yes |
 | <a name="input_ovh_type"></a> [ovh\_type](#input\_ovh\_type) | Redirect type | `string` | `"visiblePermanent"` | no |
+| <a name="input_region"></a> [region](#input\_region) | Region Used | `any` | n/a | yes |
 
 ## Outputs
 

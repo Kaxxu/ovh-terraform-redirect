@@ -1,5 +1,5 @@
 name        = "ovh-pingwin-redirects"
-aws_region  = "eu-west-1"
+region      = "eu-west-1"
 environment = "priv"
 domain      = "pingw.in"
 ovh_redirect = {

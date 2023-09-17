@@ -22,14 +22,14 @@ terraform {
 }
 
 provider "aws" {
-  region = var.aws_region
+  region = var.region
 
   default_tags {
     tags = {
       Name        = var.name
       Environment = var.environment
       Repo        = "GitHub/Kaxxu/terraform-ovh-redirect"
-      Workspace   = var.TFC_WORKSPACE_SLUG
+      Workspace   = terraform.workspace
     }
   }
 }

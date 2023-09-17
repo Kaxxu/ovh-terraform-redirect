@@ -14,11 +14,6 @@ variable "domain" {
   description = "Domain name"
 }
 
-variable "TFC_WORKSPACE_SLUG" {
-  description = "Terraform Cloud Workspace"
-  default     = "Terraform Cloud"
-}
-
 #######
 # OVH #
 #######
@@ -37,6 +32,6 @@ variable "ovh_redirect" {
 # AWS #
 #######
 
-variable "aws_region" {
+variable "region" {
   description = "Region Used"
 }
